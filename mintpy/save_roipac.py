@@ -228,25 +228,20 @@ def read_data(inps):
         # metadata
         if 'coherence' in k.lower():
             atr['FILE_TYPE'] = '.cor'
-            data = readfile.read(inps.file)[0]
 
         elif k in ['mask']:
             atr['FILE_TYPE'] = '.msk'
             atr['DATA_TYPE'] = 'byte'
-            data = readfile.read(inps.file)[0]
 
         elif k in ['geometry'] and inps.dset == 'height':
             if 'Y_FIRST' in atr.keys():
                 atr['FILE_TYPE'] = '.dem'
                 atr['DATA_TYPE'] = 'int16'
-                data = readfile.read(inps.file)[0]
             else:
                 atr['FILE_TYPE'] = '.hgt'
-                data = readfile.read(inps.file)[0]
             atr['UNIT'] = 'm'
         else:
             atr['FILE_TYPE'] = '.unw'
-            data = readfile.read(inps.file)[0]
 
         # output filename
         if not inps.outfile:
