@@ -242,9 +242,11 @@ def read_data(inps):
                 data = readfile.read(inps.file)[0]
             else:
                 atr['FILE_TYPE'] = '.hgt'
+                data = readfile.read(inps.file)[0]
             atr['UNIT'] = 'm'
         else:
             atr['FILE_TYPE'] = '.unw'
+            data = readfile.read(inps.file)[0]
 
         # output filename
         if not inps.outfile:
